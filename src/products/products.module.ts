@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, HttpModule } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
 import { ProductSchema } from './schemas/product.schema';
@@ -13,6 +13,7 @@ import { ProductsController } from './products.controller';
         schema: ProductSchema,
       },
     ]),
+    HttpModule,
   ],
   controllers: [ProductsController],
   providers: [ProductService],

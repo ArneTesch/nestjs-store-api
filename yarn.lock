@@ -9,6 +9,13 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@nest-middlewares/connect-timeout@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@nest-middlewares/connect-timeout/-/connect-timeout-1.1.1.tgz#89556b002380f981cf9a4efcc4a1bd23904b08f4"
+  dependencies:
+    "@types/connect-timeout" "0.0.33"
+    connect-timeout "^1.9.0"
+
 "@nestjs/common@^5.0.0-beta.6":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-5.0.0.tgz#2c8efc94b7002bf2dc55204ec825432d7e1f53e8"
@@ -36,9 +43,9 @@
     json-socket "^0.2.1"
     optional "0.1.4"
 
-"@nestjs/mongoose@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-4.0.0.tgz#22ddf074492e29a7a3244f95e881fde4c3f64aed"
+"@nestjs/mongoose@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-4.0.2.tgz#986b5d0926f46e9d2d2670ce9ee811d3e4480473"
 
 "@nestjs/testing@^5.0.0-beta.6":
   version "5.0.0"
@@ -81,6 +88,12 @@
   dependencies:
     "@types/node" "*"
 
+"@types/connect-timeout@0.0.33":
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/@types/connect-timeout/-/connect-timeout-0.0.33.tgz#89da7e2d3eb4fad64535303c3dfba1fd427e7943"
+  dependencies:
+    "@types/express" "*"
+
 "@types/connect@*":
   version "3.4.32"
   resolved "https://registry.yarnpkg.com/@types/connect/-/connect-3.4.32.tgz#aa0e9616b9435ccad02bc52b5b454ffc2c70ba28"
@@ -98,7 +111,7 @@
     "@types/events" "*"
     "@types/node" "*"
 
-"@types/express@^4.0.39":
+"@types/express@*", "@types/express@^4.0.39":
   version "4.11.1"
   resolved "https://registry.yarnpkg.com/@types/express/-/express-4.11.1.tgz#f99663b3ab32d04cb11db612ef5dd7933f75465b"
   dependencies:
@@ -1937,6 +1950,15 @@ configstore@^3.0.0:
     write-file-atomic "^2.0.0"
     xdg-basedir "^3.0.0"
 
+connect-timeout@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/connect-timeout/-/connect-timeout-1.9.0.tgz#bc27326b122103714bebfa0d958bab33f6522e3a"
+  dependencies:
+    http-errors "~1.6.1"
+    ms "2.0.0"
+    on-finished "~2.3.0"
+    on-headers "~1.0.1"
+
 console-browserify@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/console-browserify/-/console-browserify-1.1.0.tgz#f0241c45730a9fc6323b206dbf38edc741d0bb10"
@@ -3367,7 +3389,7 @@ http-errors@1.6.2:
     setprototypeof "1.0.3"
     statuses ">= 1.3.1 < 2"
 
-http-errors@~1.6.2:
+http-errors@~1.6.1, http-errors@~1.6.2:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.6.3.tgz#8b55680bb4be283a0b5bf4ea2e38580be1d9320d"
   dependencies:
@@ -5518,6 +5540,10 @@ on-finished@^2.3.0, on-finished@~2.3.0:
   resolved "https://registry.yarnpkg.com/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
   dependencies:
     ee-first "1.1.1"
+
+on-headers@~1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/on-headers/-/on-headers-1.0.1.tgz#928f5d0f470d49342651ea6794b0857c100693f7"
 
 once@^1.3.0, once@^1.3.1, once@^1.3.3, once@^1.4.0, once@~1.4.0:
   version "1.4.0"

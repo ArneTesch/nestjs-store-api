@@ -1,15 +1,35 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 
 import { CreateProductDto } from './dto/create-product.dto';
 import { Product } from './interfaces/product.interface';
 import { ProductService } from './product.service';
+import { Observable, of } from 'rxjs';
+import { AxiosResponse } from 'axios';
+import { Db } from 'mongodb';
 
 @Controller('products')
 export class ProductsController {
-  constructor(private readonly productService: ProductService) {}
+  constructor(private readonly productService: ProductService) {
+  }
 
   @Get()
-  async findAll(): Promise<Product[]> {
+  findAll() {
+    // return of([
+    //   {
+    //     name: 'test',
+    //     description: 'test123',
+    //     price: 12,
+    //   },
+    // ]);
+
     return this.productService.findAll();
   }
 
@@ -19,8 +39,8 @@ export class ProductsController {
   }
 
   @Post()
-  async create(@Body() createProductDto: CreateProductDto) {
-    this.productService.create(createProductDto);
+  create(product: Product) {
+    this.productService.create(product);
   }
 
   @Put(':id')

@@ -1,24 +1,20 @@
-import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { HttpService, Injectable } from '@nestjs/common';
+import { AxiosResponse } from 'axios';
+import { Observable } from 'rxjs';
 
-import { PRODUCT_MODEL_TOKEN } from '../constants';
-import { CreateProductDto } from './dto/create-product.dto';
 import { Product } from './interfaces/product.interface';
 
 @Injectable()
 export class ProductService {
-  constructor(
-    @InjectModel(PRODUCT_MODEL_TOKEN)
-    private readonly productModel: Model<Product>,
-  ) {}
+  constructor(private readonly http: HttpService) {}
 
-  async create(createProductDto: CreateProductDto): Promise<Product> {
-    const createdProduct = new this.productModel(createProductDto);
-    return await createdProduct.save();
+  url = 'http://localhost:3000/products';
+
+  create(product: Product): Observable<AxiosResponse<Product>> {
+    return this.http.post(this.url, product);
   }
 
-  async findAll(): Promise<Product[]> {
-    return await this.productModel.find().exec();
+  findAll(): Observable<AxiosResponse<Product[]>> {
+    return this.http.get(this.url);
   }
 }
