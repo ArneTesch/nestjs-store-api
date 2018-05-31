@@ -6,19 +6,19 @@ import {
   Param,
   Post,
   Put,
+  HttpService,
 } from '@nestjs/common';
 
-import { CreateProductDto } from './dto/create-product.dto';
 import { Product } from './interfaces/product.interface';
 import { ProductService } from './product.service';
-import { Observable, of } from 'rxjs';
-import { AxiosResponse } from 'axios';
-import { Db } from 'mongodb';
+import { map } from 'rxjs/operators';
 
 @Controller('products')
 export class ProductsController {
-  constructor(private readonly productService: ProductService) {
-  }
+  constructor(
+    private readonly httpService: HttpService,
+    private readonly productService: ProductService,
+  ) {}
 
   @Get()
   findAll() {
@@ -31,6 +31,8 @@ export class ProductsController {
     // ]);
 
     return this.productService.findAll();
+
+    // return this.httpService.get('http://localhost:3000/').pipe(map(response => response.data));
   }
 
   @Get(':id')
@@ -39,7 +41,7 @@ export class ProductsController {
   }
 
   @Post()
-  create(product: Product) {
+  create(@Body() product) {
     this.productService.create(product);
   }
 
