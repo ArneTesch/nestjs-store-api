@@ -1,22 +1,10 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Post,
-  Put,
-  HttpService,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 
-import { Product } from './interfaces/product.interface';
 import { ProductService } from './product.service';
-import { map } from 'rxjs/operators';
 
 @Controller('products')
 export class ProductsController {
   constructor(
-    private readonly httpService: HttpService,
     private readonly productService: ProductService,
   ) {}
 
@@ -29,10 +17,7 @@ export class ProductsController {
     //     price: 12,
     //   },
     // ]);
-
     return this.productService.findAll();
-
-    // return this.httpService.get('http://localhost:3000/').pipe(map(response => response.data));
   }
 
   @Get(':id')

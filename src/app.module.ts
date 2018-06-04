@@ -5,10 +5,7 @@ import { Mongoose } from 'mongoose';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb://localhost/items',
-
-    ),
+    MongooseModule.forRoot('mongodb://localhost/items'),
     ProductsModule,
   ],
 })
